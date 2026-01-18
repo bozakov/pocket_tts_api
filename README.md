@@ -4,7 +4,9 @@ Lightweight local TTS server based on the very fast [Pocket TTS model](https://k
 
 Using an old Haswell CPU it generated around 1.5x real-time speed for 24 KHz audio with the `nova` voice.
 
-Inspired by [kyutai-tts-openai-api](kyutai-tts-openai-api).
+The server works great with the [OpenAI TTS Custom Component](https://github.com/sfortis/openai_tts) for Home Assistant.
+
+Inspired by [kyutai-tts-openai-api](https://github.com/dwain-barnes/kyutai-tts-openai-api).
 
 # Build and run with Docker:
 
