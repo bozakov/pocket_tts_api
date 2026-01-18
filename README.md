@@ -12,7 +12,7 @@ curl http://localhost:8001/v1/audio/speech \
     "model": "tts-1",
     "input": "Hello! This is a test of the fully compatible local text to speech server.",
     "voice": "nova",
-    "response_format",  "wav",
+    "response_format":"wav",
     "speed": 1.1
   }' \
   --output test_audio.wav
