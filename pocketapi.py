@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 QUEUE_SIZE = 32
 QUEUE_TIMEOUT = 2.0
 EOF_TIMEOUT = 1.0
-CHUNK_SIZE = 64 * 1024
+CHUNK_SIZE = 32 * 1024
 DEFAULT_SAMPLE_RATE = 24000
 
 # map OpenAI voice names to pocket_tts voice names
@@ -296,6 +296,15 @@ async def text_to_speech(request: SpeechRequest) -> StreamingResponse:
         media_type=MEDIA_TYPES.get(request.response_format, "audio/wav"),
     )
 
+@app.get("/health")
+async def health():
+    """Simple healthcheck endpoint."""
+    return {
+        "status": "ok",
+        "model_loaded": tts_model is not None,
+        "device": device,
+        "sample_rate": sample_rate,
+    }
 
 if __name__ == "__main__":
 
