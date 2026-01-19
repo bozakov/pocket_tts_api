@@ -2,7 +2,7 @@
 
 Lightweight local TTS server based on the very fast [Pocket TTS model](https://kyutai.org/blog/2026-01-13-pocket-tts) from Kyutai, provides a simple OpenAI-compatible speech API (`v1/audio/speech`) for generating audio from text.
 
-Using an old Haswell CPU it generated around 1.5x real-time speed for 24 KHz audio with the `nova` voice.
+Using an old Haswell CPU it runs at around 1.5x real-time speed with the `nova` voice.
 
 The server works great with the [OpenAI TTS Custom Component](https://github.com/sfortis/openai_tts) for Home Assistant.
 
@@ -12,7 +12,13 @@ Inspired by [kyutai-tts-openai-api](https://github.com/dwain-barnes/kyutai-tts-o
 
 ```bash
 docker build -t pocket_tts_api .
-docker run --name pocket_tts_api -d -p 8008:8000 pocket_tts_api
+docker run --restart=always --name pocket_tts_api -d -p 8008:8000 pocket_tts_api
+```
+
+or with `docker-compose`:
+
+```bash
+docker-compose up -d
 ```
 
 Currently the `model` and `speed` parameters are ignored.

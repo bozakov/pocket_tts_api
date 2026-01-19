@@ -2,7 +2,7 @@ services:
   kyutai-pocket-tts:
     build:
       context: .
-      dockerfile: dockerfile   # ensure this path is correct
+      dockerfile: Dockerfile
     image: pocket_tts_api:latest
     environment:
       - PYTHONUNBUFFERED=1
@@ -19,7 +19,6 @@ services:
       timeout: 5s
       retries: 3
 
-# Named volumes (top-level)
 volumes:
   kyutai_cache:
     driver: local
